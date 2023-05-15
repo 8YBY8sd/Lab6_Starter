@@ -128,7 +128,8 @@ class RecipeCard extends HTMLElement {
     //           do not nest an <article> inside another <article>). You should use Template
     //           literals (tempalte strings) and element.innerHTML for this.
     //https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML
-    article.innerHTML = `<img src="${data.imgSrc}"
+    article.innerHTML = `
+    <img src="${data.imgSrc}"
     alt="${data.titleTxt}">
   <p class="title">
     <a href="${data.titleLnk}">${data.titleTxt}</a>
@@ -148,4 +149,4 @@ class RecipeCard extends HTMLElement {
 
 // A8. TODO - Define the Class as a customElement so that you can create
 //           'recipe-card' elements
-customElements.define('recipe-card', RecipeCard);
+customElements.define("recipe-card", RecipeCard);
