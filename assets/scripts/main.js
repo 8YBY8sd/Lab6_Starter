@@ -75,11 +75,11 @@ function saveRecipesToStorage(recipes) {
 function initFormHandler() {
 
   // B2. TODO - Get a reference to the <form> element
-  let formEle = document.getElementById('new-recipe');
+  let formEle = document.querySelector('form');
   // B3. TODO - Add an event listener for the 'submit' event, which fires when the
   //            submit button is clicked
-  let submitInIndex = document.querySelector("button[type='submit']");
-  submitInIndex.addEventListener('click', (event) => {
+  //let submitInIndex = document.querySelector("button[type='submit']");
+  formEle.addEventListener('submit', (event) => {
     event.preventDefault();
     // Steps B4-B9 will occur inside the event listener from step B3
     // B4. TODO - Create a new FormData object from the <form> element reference above
@@ -88,7 +88,7 @@ function initFormHandler() {
     //            make this easier to read), and then extract the keys and corresponding
     //            values from the FormData object and insert them into recipeObject
     //{} means empty object
-    let recipeObject = {};
+    let recipeObject = new Object();
     //https://developer.mozilla.org/en-US/docs/Web/API/FormData/entries
     for (const pair of newFormdata.entries()){
       recipeObject[pair[0]] = pair[1];
