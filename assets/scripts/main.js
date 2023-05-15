@@ -79,10 +79,9 @@ function initFormHandler() {
   // B3. TODO - Add an event listener for the 'submit' event, which fires when the
   //            submit button is clicked
   let submitInIndex = document.querySelector("button[type='submit']");
-  submitInIndex.addEventListener('click', submitBu);
-  // Steps B4-B9 will occur inside the event listener from step B3
-
-  function submitBu(){
+  submitInIndex.addEventListener('click', (event) => {
+    event.preventDefault();
+    // Steps B4-B9 will occur inside the event listener from step B3
     // B4. TODO - Create a new FormData object from the <form> element reference above
     let newFormdata = new FormData(formEle);
     // B5. TODO - Create an empty object (I'll refer to this object as recipeObject to
@@ -107,7 +106,9 @@ function initFormHandler() {
     oldRecipes.push(newReciprCard);
     //addRecipesToDocument(newReciprCard);
     localStorage.setItem('recipes', JSON.stringify(oldRecipes));
-  }
+  });
+  
+  
   // B10. TODO - Get a reference to the "Clear Local Storage" button
   let cls = document.querySelector("button[type='button']");
   // B11. TODO - Add a click event listener to clear local storage button
@@ -120,4 +121,5 @@ function initFormHandler() {
     let mainRef = document.querySelector('main');
     mainRef.textContent = "";
   }
+
 }
